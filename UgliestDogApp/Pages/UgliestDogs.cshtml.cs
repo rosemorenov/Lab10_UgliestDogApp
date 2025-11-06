@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
    using Microsoft.Data.Sqlite;
    using System.Collections.Generic;
 
+// This is a PageModel for a Razor Page that handles displaying the ugliest dogs images
    public class UgliestDogsModel : PageModel
    {
        public List<SelectListItem> DogList { get; set; }
@@ -79,4 +80,5 @@ using Microsoft.AspNetCore.Mvc;
        public string Breed { get; set; }
        public int Year { get; set; }
        public string ImageFileName { get; set; }
+
    }
