@@ -4,18 +4,25 @@
     ViewData["Title"] = "Ugliest Dogs";
 }
 
+<!-- Main Page heading -->
 <h1>World's Ugliest Dog Contest Winners</h1>
 
+<!-- Form that submits ugliest dog name via POST method -->
 <form method="post">
     <select name="selectedDog" asp-items="Model.DogList" onchange="this.form.submit()">
+        <!-- option when no dog is selected -->
         <option value="">-- Select a Dog --</option>
     </select>
 </form>
 
 @if (Model.SelectedDog != null)
 {
+    <!-- Display the selected dog's name as a heading -->
     <h2>@Model.SelectedDog.Name</h2>
+    <!-- Display the dog's breed and year -->
     <p>Breed: @Model.SelectedDog.Breed</p>
     <p>Year: @Model.SelectedDog.Year</p>
+    <!-- Display the dog's image with a maximum width and alt text for accessibility -->
     <img src="/images/@Model.SelectedDog.ImageFileName" alt="@Model.SelectedDog.Name" style="max-width: 300px;" />
+
 }
