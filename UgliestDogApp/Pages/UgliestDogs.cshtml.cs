@@ -10,13 +10,15 @@ using Microsoft.AspNetCore.Mvc;
 
        // List that will hold all ducks for the dropdown selection  
        public List<SelectListItem> DogList { get; set; }
+         // Property that will store the currently selected dog object
        public Dog SelectedDog { get; set; }
-
+      // Handles HTTP GET requests to the page - loads the list of dogs
        public void OnGet()
        {
            LoadDogList();
        }
-
+         // Handles HTTP POST requests (when user selects a dog) - loads the dog list
+        // and retrieves the selected dog's details
        public void OnPost(string selectedDog)
        {
            LoadDogList();
@@ -25,7 +27,8 @@ using Microsoft.AspNetCore.Mvc;
                SelectedDog = GetDogById(int.Parse(selectedDog));
            }
        }
-
+         // Helper method that loads the list of dogs from the SQLite database
+        // for displaying in a dropdown menu
        private void LoadDogList()
        {
            DogList = new List<SelectListItem>();
@@ -47,7 +50,8 @@ using Microsoft.AspNetCore.Mvc;
                }
            }
        }
-
+        // Helper method that retrieves a specific dog by its ID from the database
+        // Returns all details of the dog
        private Dog GetDogById(int id)
        {
            using (var connection = new SqliteConnection("Data Source=UgliestDogs.db"))
@@ -84,4 +88,5 @@ using Microsoft.AspNetCore.Mvc;
        public string ImageFileName { get; set; }
 
    }
+
 
