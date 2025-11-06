@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 // This is a PageModel for a Razor Page that handles displaying the ugliest dogs images
    public class UgliestDogsModel : PageModel
    {
+
+       // List that will hold all ducks for the dropdown selection  
        public List<SelectListItem> DogList { get; set; }
        public Dog SelectedDog { get; set; }
 
@@ -72,7 +74,7 @@ using Microsoft.AspNetCore.Mvc;
            return null;
        }
    }
-
+// Property that will store the currently selected ugliest dog
    public class Dog
    {
        public int Id { get; set; }
@@ -82,3 +84,4 @@ using Microsoft.AspNetCore.Mvc;
        public string ImageFileName { get; set; }
 
    }
+
